@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VillageStay - Authentic Rural Tourism Marketplace</title>
+    
+
+    <link rel="stylesheet" href="style10.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="shortcut icon" href="./favicon.svg" type="image/svg+xml">
+    
+
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/07/11/09/20250711094640-NXICOUWD.js" defer></script>
+    
+    
+<!-- In your <head> tag -->
+<script src="https://cdn.botpress.cloud/webchat/v3.0/inject.js"></script>
+<style>
+
+
+
+    
+
+
+
+
+
+
+ #weatherResult {
+    border: 1px solid #8e8a8a;
+    padding: 10px;
+    margin-top: 10px;
+    width: 250px;
+    background-color: #efefef;
+    border-radius: 8px;
+  }
+
+  #webchat .bpWebchat {
+    position: unset;
+    width: 100%;
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  #webchat .bpFab {
+    display: none;
+  }
+</style>
+
+
+
+
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-home"></i>
+                <span>VillageStay</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#stays">Browse Stays</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#host">Become a Host</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="./SignUP-SignIn-Form-with-connection-to-FIrebase/index.html">
+                    <button class="btn-secondary" onclick=>Login</button>
+                </a>
+
+                <a href="./SignUP-SignIn-Form-with-connection-to-FIrebase/index.html">
+                    <button class="btn-primary">Sign Up</button>
+                </a>
+                
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+
+
+    
+
+    <!-- Hero Section -->
+
+    <style>
+        #home {
+  background-image: url('./images/hero1.jpg'); /* Replace with your image path */
+  background-size: cover;     /* Ensures the image covers the entire div */
+  background-position: center; /* Centers the image */
+  background-repeat: no-repeat; /* Prevents tiling */
+  height: 100vh; /* Optional: makes the div fill the full viewport height */
+}
+
+    </style>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Discover Authentic Rural India</h1>
+            <p>Connect with local communities, experience traditional culture, and stay in authentic village homestays across incredible rural destinations.</p>
+            
+            <!-- Search Bar
+            <div class="search-container">
+                <div class="search-box">
+                    
+                        <div class="weather-box">
+                        <h2>Check Destination Weather</h2>
+                        <input type="text" id="placeInput" placeholder="Enter village or city name" />
+                        <button class="search-btn" onclick="getWeather()">
+                        <i class="fas fa-search"></i> Check
+                        </button>
+                        <div id="weatherResult"></div>
+                    </div>
+
+                    <script>
+                        function getWeather() {
+                        const place = document.getElementById("placeInput").value;
+                        const result = document.getElementById("weatherResult");
+
+                        if (place.trim() === "") {
+                            result.innerHTML = "Please enter a location.";
+                            return;
+                        }
+
+                        // Placeholder for weather API logic
+                        result.innerHTML = `Fetching weather for <strong>${place}</strong>...`;
+                        }
+                    </script>
+
+
+                </div> -->
+                 
+
+            </div>
+
+
+            
+        </div>
+        <!-- <div class="hero-image">
+            <img src="./images/hero1.jpg" alt="Rural village landscape">
+        </div> -->
+
+        <!-- Put this on your page BEFORE the script below -->
+<div id="webchat" style="width: 500px; height: 500px;"></div>
+
+<!-- In your <body> tag -->
+<script>
+  window.botpress.on("webchat:ready", () => {
+    window.botpress.open();
+  });
+  window.botpress.init({
+  "botId": "af63d2b8-278f-41d9-ae71-116d74d3a73c",
+  "configuration": {
+    "version": "v1",
+    "botName": "VillageBot",
+    "botDescription": "",
+    "website": {},
+    "email": {
+      "title": "ogaikwad103@gmail.com",
+      "link": "ogaikwad103@gmail.com"
+    },
+    "phone": {
+      "title": "8010408739",
+      "link": "8010408739"
+    },
+    "termsOfService": {},
+    "privacyPolicy": {},
+    "color": "#3276EA",
+    "variant": "solid",
+    "headerVariant": "glass",
+    "themeMode": "light",
+    "fontFamily": "inter",
+    "radius": 4,
+    "feedbackEnabled": true,
+    "footer": "[⚡ by Botpress](https://botpress.com/?from=webchat)"
+  },
+  "clientId": "6ade0897-0ad4-4d96-ae7e-624f961d987f",
+  "selector": "#webchat"
+});
+</script>
+    </section>
+
+
+    
+
+
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>Why Choose VillageStay?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Authentic Experiences</h3>
+                    <p>Live like a local and experience genuine rural culture, traditions, and hospitality.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainable Tourism</h3>
+                    <p>Support local communities and contribute to sustainable rural development.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Verified Hosts</h3>
+                    <p>All our village hosts are verified and committed to providing safe, comfortable stays.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>0 Pricing</h3>
+                    <p>free for all users NO any Pricing initially.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Destinations -->
+    <section id="stays" class="destinations">
+        <div class="container">
+            <h2>Popular Rural Destinations</h2>
+            <div class="destinations-grid" id="destinations-grid">
+                <!-- Destinations will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Cultural Experiences -->
+    <section id="experiences" class="experiences">
+        <div class="container">
+            <h2>Cultural Experiences</h2>
+            <div class="experiences-grid" id="experiences-grid">
+                <!-- Experiences will be populated by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Host Section -->
+    <section id="host" class="host-section">
+        <div class="container">
+            <div class="host-content">
+                <div class="host-text">
+                    <h2>Share Your Village with the World</h2>
+                    <p>Join our community of rural hosts and showcase the beauty of your village to travelers seeking authentic experiences.</p>
+                    <ul class="host-benefits">
+                        <li><i class="fas fa-check"></i> Earn extra income for your family</li>
+                        <li><i class="fas fa-check"></i> Share your culture and traditions</li>
+                        <li><i class="fas fa-check"></i> Get free marketing and booking support</li>
+                        <li><i class="fas fa-check"></i> Connect with travelers from around the world</li>
+                    </ul>
+
+                    <a href="./form/form.html">
+                        <button class="btn-primary" onclick="openHostModal()">Register Yourself at village stay</button>
+
+                    </a>
+                </div>
+                <div class="host-image">
+                    <img src="./images/hero2.jpg" alt="Village host family">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-home"></i>
+                        <span>VillageStay</span>
+                    </div>
+                    <p>Connecting travelers with authentic rural experiences across India.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>For Travelers</h3>
+                    <ul>
+                        <li><a href="#">Browse Stays</a></li>
+                        <li><a href="#">Cultural Experiences</a></li>
+                        <li><a href="#">Travel Guide</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>For Hosts</h3>
+                    <ul>
+                        <li><a href="./form/form.html">Become a Host</a></li>
+                        <li><a href="#">Host Resources</a></li>
+                        <li><a href="#">Community Guidelines</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 VillageStay. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Host Registration Modal -->
+    <div id="hostModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeHostModal()">&times;</span>
+            <h2>Become a VillageStay Host</h2>
+            <form id="hostForm">
+                <div class="form-group">
+                    <label for="hostName">Full Name</label>
+                    <input type="text" id="hostName" required>
+                </div>
+                <div class="form-group">
+                    <label for="hostPhone">Phone Number</label>
+                    <input type="tel" id="hostPhone" required>
+                </div>
+                <div class="form-group">
+                    <label for="hostEmail">Email</label>
+                    <input type="email" id="hostEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="villageName">Village Name</label>
+                    <input type="text" id="villageName" required>
+                </div>
+                <div class="form-group">
+                    <label for="state">State</label>
+                    <select id="state" required>
+                        <option value="">Select State</option>
+                        <option value="rajasthan">Rajasthan</option>
+                        <option value="kerala">Kerala</option>
+                        <option value="himachal">Himachal Pradesh</option>
+                        <option value="uttarakhand">Uttarakhand</option>
+                        <option value="maharashtra">Maharashtra</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="accommodation">Type of Accommodation</label>
+                    <select id="accommodation" required>
+                        <option value="">Select Type</option>
+                        <option value="homestay">Traditional Homestay</option>
+                        <option value="farmstay">Farm Stay</option>
+                        <option value="heritage">Heritage Home</option>
+                        <option value="eco">Eco Lodge</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="description">Describe Your Village & Accommodation</label>
+                    <textarea id="description" rows="4" placeholder="Tell us about your village, your home, and what makes it special..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">Submit Application</button>
+            </form>
+        </div>
+    </div>
+
+    
+    
+   
+    
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

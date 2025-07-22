@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>VillageStay - Villager Survey Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    .form-container {
+      background: white;
+      max-width: 550px;
+      margin: auto;
+      padding: 25px 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: relative;
+    }
+
+    select{
+      width: 80px;
+      height: 30px;
+      background: rgb(255, 255, 255);
+      font-weight: 900;
+      border-radius: 20px;
+    }
+    .language-select {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+    }
+    h2 {
+      text-align: center;
+      color: #2e7d32;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      margin-bottom: 6px;
+      margin-top: 15px;
+    }
+    label img {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+    input[type="text"],
+    input[type="tel"],
+    input[type="file"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .checkbox-group {
+      margin-bottom: 15px;
+      padding-left: 28px;
+    }
+    .checkbox-group label {
+      display: block;
+      font-weight: normal;
+      margin: 4px 0;
+    }
+    button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      width: 100%;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    button:hover {
+      background-color: #1b5e20;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="form-container">
+    <!-- Language Selector -->
+    <div class="language-select">
+      <select id="languageSelect" onchange="changeLanguage()">
+        <option value="en">English</option>
+        <option value="hi">हिंदी</option>
+        <option value="mr">मराठी</option>
+        <option value="gu">ગુજરાતી</option>
+      </select>
+    </div>
+
+    <h2 id="formTitle">VillageStay Villager Survey</h2>
+
+    <form enctype="multipart/form-data">
+      <label for="name">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077114.png" alt="Name Icon">
+        <span id="labelName">Full Name:</span>
+      </label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+      <label for="address">
+        <img src="https://cdn-icons-png.flaticon.com/512/684/684908.png" alt="Address Icon">
+        <span id="labelAddress">Village Address:</span>
+      </label>
+      <textarea id="address" name="address" rows="3" placeholder="Village, Taluka, District, State" required></textarea>
+
+      <label>
+        <img src="https://cdn-icons-png.flaticon.com/512/535/535239.png" alt="Facility Icon">
+        <span id="labelFacilities">Facilities You Can Provide:</span>
+      </label>
+      <div class="checkbox-group" id="facilityOptions">
+        <label><input type="checkbox" name="facility" value="Accommodation"> <span class="facility">Accommodation</span></label>
+        <label><input type="checkbox" name="facility" value="Food"> <span class="facility">Food</span></label>
+        <label><input type="checkbox" name="facility" value="Stay"> <span class="facility">Stay</span></label>
+        <label><input type="checkbox" name="facility" value="Cultural Events"> <span class="facility">Cultural Events</span></label>
+        <label><input type="checkbox" name="facility" value="Guided Tours"> <span class="facility">Guided Village Tours</span></label>
+      </div>
+
+      <label for="contact">
+        <img src="https://cdn-icons-png.flaticon.com/512/597/597177.png" alt="Phone Icon">
+        <span id="labelContact">Contact Number:</span>
+      </label>
+      <input type="tel" id="contact" name="contact" placeholder="Enter your mobile number" required>
+
+      <label for="images">
+        <img src="https://cdn-icons-png.flaticon.com/512/545/545682.png" alt="Upload Icon">
+        <span id="labelImages">Upload Images (Homestay, Food, etc.):</span>
+      </label>
+      <input type="file" id="images" name="images[]" multiple accept="image/*" required>
+
+      <button type="submit" id="submitBtn">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    const translations = {
+      en: {
+        formTitle: "VillageStay Villager Survey",
+        labelName: "Full Name:",
+        labelAddress: "Village Address:",
+        labelFacilities: "Facilities You Can Provide:",
+        facilities: ["Accommodation", "Food", "Stay", "Cultural Events", "Guided Village Tours"],
+        labelContact: "Contact Number:",
+        labelImages: "Upload Images (Homestay, Food, etc.):",
+        submitBtn: "Submit",
+        placeholderName: "Enter your full name",
+        placeholderAddress: "Village, Taluka, District, State",
+        placeholderContact: "Enter your mobile number"
+      },
+      hi: {
+        formTitle: "VillageStay ग्रामवासी सर्वेक्षण",
+        labelName: "पूरा नाम:",
+        labelAddress: "गांव का पता:",
+        labelFacilities: "आप कौन-कौन सी सुविधाएं दे सकते हैं:",
+        facilities: ["आवास", "भोजन", "रहने की जगह", "सांस्कृतिक कार्यक्रम", "गांव की गाइडेड यात्रा"],
+        labelContact: "संपर्क नंबर:",
+        labelImages: "छवियां अपलोड करें (होमस्टे, भोजन, आदि):",
+        submitBtn: "जमा करें",
+        placeholderName: "अपना पूरा नाम दर्ज करें",
+        placeholderAddress: "गांव, तहसील, जिला, राज्य",
+        placeholderContact: "अपना मोबाइल नंबर दर्ज करें"
+      },
+      mr: {
+        formTitle: "VillageStay ग्राम सर्वेक्षण फॉर्म",
+        labelName: "पूर्ण नाव:",
+        labelAddress: "गावाचा पत्ता:",
+        labelFacilities: "आपण कोणत्या सुविधा देऊ शकता:",
+        facilities: ["निवास", "अन्न", "राहण्याची जागा", "सांस्कृतिक कार्यक्रम", "गाव सफर"],
+        labelContact: "संपर्क क्रमांक:",
+        labelImages: "प्रतिमा अपलोड करा (होमस्टे, अन्न, इ.):",
+        submitBtn: "सबमिट करा",
+        placeholderName: "तुमचे पूर्ण नाव लिहा",
+        placeholderAddress: "गाव, तालुका, जिल्हा, राज्य",
+        placeholderContact: "तुमचा मोबाईल क्रमांक लिहा"
+      },
+      gu: {
+        formTitle: "VillageStay ગામવાસી સર્વે ફોર્મ",
+        labelName: "પૂર્ણ નામ:",
+        labelAddress: "ગામનો સરનામું:",
+        labelFacilities: "તમે કઈ સુવિધાઓ આપી શકો છો:",
+        facilities: ["રહેઠાણ", "ખોરાક", "રહવાની જગ્યા", "સાંસ્કૃતિક કાર્યક્રમો", "ગામની માર્ગદર્શન યાત્રા"],
+        labelContact: "સંપર્ક નંબર:",
+        labelImages: "છબીઓ અપલોડ કરો (હોમસ્ટે, ખોરાક, વગેરે):",
+        submitBtn: "મોકલો",
+        placeholderName: "તમારું સંપૂર્ણ નામ લખો",
+        placeholderAddress: "ગામ, તાલુકો, જિલ્લો, રાજ્ય",
+        placeholderContact: "તમારો મોબાઇલ નંબર લખો"
+      }
+    };
+
+    function changeLanguage() {
+      const lang = document.getElementById("languageSelect").value;
+      const t = translations[lang];
+
+      document.getElementById("formTitle").textContent = t.formTitle;
+      document.getElementById("labelName").textContent = t.labelName;
+      document.getElementById("labelAddress").textContent = t.labelAddress;
+      document.getElementById("labelFacilities").textContent = t.labelFacilities;
+      document.getElementById("labelContact").textContent = t.labelContact;
+      document.getElementById("labelImages").textContent = t.labelImages;
+      document.getElementById("submitBtn").textContent = t.submitBtn;
+
+      document.getElementById("name").placeholder = t.placeholderName;
+      document.getElementById("address").placeholder = t.placeholderAddress;
+      document.getElementById("contact").placeholder = t.placeholderContact;
+
+      const facilities = document.querySelectorAll(".facility");
+      facilities.forEach((el, i) => {
+        el.textContent = t.facilities[i] || "";
+      });
+    }
+  </script>
+
+</body>
+</html>
